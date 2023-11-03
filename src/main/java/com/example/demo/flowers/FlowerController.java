@@ -7,8 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.SpringApplication;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 //import com.example.demo.flowers.Flower;
 //import com.example.demo.flowers.FlowerColor;
@@ -21,6 +25,12 @@ public class FlowerController {
     private final int sep = 10;
     private final double price = 10;
     private FlowerService flowerService;
+    //@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @PostMapping(value = "/add/", consumes = "application/json;charset=UTF-8")
+    public void addFlower(@RequestBody Flower flower){
+        flowerService.add(flower);
+    }
+
 
     @Autowired
     public FlowerController(FlowerService flowerService){

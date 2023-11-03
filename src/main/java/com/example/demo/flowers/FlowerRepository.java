@@ -1,5 +1,8 @@
 package com.example.demo.flowers;
 
-public class FlowerRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FlowerRepository extends JpaRepository<Flower, Integer>{
+
     
 }

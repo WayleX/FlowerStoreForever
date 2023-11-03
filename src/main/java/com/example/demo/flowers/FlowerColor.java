@@ -14,11 +14,11 @@ public enum FlowerColor {
     }
 
     @Override
-    @JsonValue
+    //@JsonValue
     public String toString() {
         return stringRepresentation;
     }
-    @JsonValue
+    //@JsonValue
     public String getValue() {
         return stringRepresentation;
     }
